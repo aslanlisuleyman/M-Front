@@ -1,0 +1,13 @@
+.rengg{
+    background-color: rgb(34, 33, 33);
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.rengg p{
+    color: white;
+}
