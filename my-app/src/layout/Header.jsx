@@ -22,21 +22,21 @@ const Header = () => {
   const formik = useFormik({
     initialValues: {
       
-      title: '',
+      name: '',
       price: '',
-      image:''
+      images:''
     },
 
     validate: (values) => {
       const errors = {};
-      if (!values.title) {
-        errors.title = 'Başlıq əlavə et';
+      if (!values.name) {
+        errors.name = 'Başlıq əlavə et';
       }
       if (!values.price) {
         errors.price = 'Qiymət əlavə et';
       }
-      if (!values.image) {
-        errors.image = 'Rəsm əlavə et';
+      if (!values.images) {
+        errors.images = 'Rəsm əlavə et';
       }
       return errors;
     },
@@ -57,10 +57,9 @@ const Header = () => {
   
     if (!isFormOpen) {
       formik.setValues({
-        
-        title: item.title,
+        name: item.name,
         price: item.price,
-        image: item.image,
+        images: item.images,
       });
     } else {
       formik.resetForm();
@@ -87,26 +86,26 @@ const Header = () => {
           <form onSubmit={formik.handleSubmit}>
 
             <div>
-              Image: <br />
+              Images: <br />
             <input style={{marginLeft:'0%',width:'300px'}}
                         type='text'
-                        name='image'
-                        value={formik.values.image}
+                        name='images'
+                        value={formik.values.images}
                         onChange={formik.handleChange}
                       />
-                      {formik.errors.image && (
-    <div className='error'>{formik.errors.image}</div>
+                      {formik.errors.images && (
+    <div className='error'>{formik.errors.images}</div>
   )}
             </div>
-            <div> Title: <br />
+            <div> Name: <br />
             <input style={{width:'300px',marginLeft:'0%'}}
                         type='text'
-                        name='title'
-                        value={formik.values.title}
+                        name='name'
+                        value={formik.values.name}
                         onChange={formik.handleChange}
                       />
-                       {formik.errors.title && (
-    <div className='error'>{formik.errors.title}</div>
+                       {formik.errors.name && (
+    <div className='error'>{formik.errors.name}</div>
   )}
             </div>
             <div> Price: <br />
