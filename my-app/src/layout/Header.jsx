@@ -21,7 +21,7 @@ const Header = () => {
   
   const formik = useFormik({
     initialValues: {
-      id:'',
+      
       title: '',
       price: '',
       image:''
@@ -57,7 +57,7 @@ const Header = () => {
   
     if (!isFormOpen) {
       formik.setValues({
-        id: '',
+        
         title: item.title,
         price: item.price,
         image: item.image,

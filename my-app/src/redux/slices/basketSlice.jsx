@@ -16,19 +16,19 @@ const basketSlice = createSlice({
   reducers: {
     addBasket: (state, action) => {
       const target = state.items.find(
-        (product) => product._id === action.payload._id
+        (product) => product.id === action.payload.id
       );
       if (target) {
         target.count = target.count + 1;
         toast.success("Əlavə olundu");
         target.totalPrice = (
-          target.count * parseFloat(target.product.price)
+          target.count * parseFloat(target.price)
         ).toFixed(2);
-        state.items = [...state.items];
+        state.items = [...state];
 
         localStorage.setItem("basketItems", JSON.stringify([...state.items]));
         state.basketTotalPrice =
-          state.basketTotalPrice + parseFloat(target.product.price);
+          state.basketTotalPrice + parseFloat(target.price);
 
         localStorage.setItem(
           "basketTotalPrice",
@@ -37,7 +37,7 @@ const basketSlice = createSlice({
       } else {
         toast.success("Əlavə olundu");
         const basketItem = {
-          id: action.payload.id,
+          id: action.payload._id,
           product: action.payload,
           count: 1,
           totalPrice: parseFloat(action.payload.price),
@@ -55,6 +55,7 @@ const basketSlice = createSlice({
       }
     },
     increaseBtn: (state, action) => {
+      
       const target = state.items.find((item) => item.id === action.payload.id);
       target.count = target.count + 1;
       target.totalPrice = (

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBasket,  decreaseBasketItem, deleteItems, increaseBtn } from '../redux/slices/basketSlice';
-import axios from 'axios';
+
 
 const Card = () => {
   const items = useSelector((state) => state.baskets.items);
@@ -17,7 +17,7 @@ const Card = () => {
         <thead style={{ height: '50px' }}>
           <tr>
             <th style={tableHeaderStyle}>Image</th>
-            <th style={tableHeaderStyle}>ID</th>
+            
             <th style={tableHeaderStyle}>Name</th>
             <th style={tableHeaderStyle}>Price</th>
             <th style={tableHeaderStyle}>Decrease</th>
@@ -32,9 +32,9 @@ const Card = () => {
           {items.map((item, index) => {
             return (
               <tr key={index}>
-                <td> <img style={{ marginLeft: "0%", height: '100px', width: '130px' }} src={item.product.image} alt="" /> </td>
-                <td> <p style={{ marginLeft: '0%' }}> {item.product._id}</p></td>
-                <td> <p style={{ marginLeft: '0%' }}> {item.product.title}</p></td>
+                <td> <img style={{ marginLeft: "0%", height: '100px', width: '130px' }} src={item.product.images} alt="" /> </td>
+                
+                <td> <p style={{ marginLeft: '0%' }}> {item.product.name}</p></td>
                 <td > <p style={{ marginLeft: '10%' }}>{item.product.price}</p></td>
                 <td>
                   <button style={{ color: 'black', marginLeft: '10%', fontSize: '20px' }} onClick={() => {

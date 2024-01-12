@@ -22,13 +22,13 @@ const Card = () => {
       {data.map((item, index) => {
         return (
           <div class="card" style={{ width: '17rem', height: '400px' }}>
-            <img style={{ height: '250px' }} src={item.image} class="card-img-top" alt="..." />
+            <img style={{ height: '250px' }} src={item.images} class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 style={{ marginLeft: '75px' }} class="card-title">
-                {item.title}
+                {item.name}
               </h5>
               <p style={{ marginLeft: '103px' }} class="card-text">
-                ${item.price}
+              {item.price}
               </p>
               <a
                 class="btn bw btn-primary"
